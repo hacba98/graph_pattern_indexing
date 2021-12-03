@@ -1,0 +1,4 @@
+CREATE (r:PATTERN_INDEX_ROOT {name: 'Triagle index', meta: '(u1:USER)-[r1:FOLLOWS]-(u2:USER)-[r2:FOLLOWS]-(u3:USER)-[r3:FOLLOWS]-(u1:USER)'})
+WITH r AS root_node
+MATCH (p:PATTERN_INDEX_UNIT)
+CREATE (r)-[:PATTERN_INDEX_RELATION]->(p)

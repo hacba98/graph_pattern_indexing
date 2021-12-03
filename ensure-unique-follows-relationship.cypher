@@ -1,0 +1,1 @@
+CREATE CONSTRAINT unique_follows IF NOT EXISTS ON (:User)-[r:FOLLOWS]-(:User)

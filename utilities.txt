@@ -1,0 +1,16 @@
+[DELETE]
+MATCH (p:PATTERN_INDEX_UNIT) OPTIONAL MATCH (p)-[r]-() DELETE p,r
+
+[QUERY]
+MATCH (p:PATTERN_INDEX_UNIT)-[r:PATTERN_INDEX_RELATION]->(u:User)
+RETURN p,r,u
+
+[QUERY 2]
+MATCH (p:PATTERN_INDEX_UNIT)-[r1:PATTERN_INDEX_RELATION]->(u1:User)
+MATCH (p)-[r2:PATTERN_INDEX_RELATION]->(u2:User)
+MATCH (p)-[r3:PATTERN_INDEX_RELATION]->(u3:User)
+WHERE NOT p.n1='0'
+RETURN p,r1,r2,r3,u1,u2,u3 LIMIT 3
+
+[RUN FILE]
+CALL apoc.cypher.runFile('C:\Users\Admin\Downloads\CW\create-indexes.cypher', [{statistics: true, timeout: 10, parameters: {}}])

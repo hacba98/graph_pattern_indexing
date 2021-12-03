@@ -1,0 +1,2 @@
+[Running in Neo4j terminal]
+.\bin\neo4j-admin.bat copy --from-database=neo4j --to-database=users --keep-only-nodes-with-labels=User
